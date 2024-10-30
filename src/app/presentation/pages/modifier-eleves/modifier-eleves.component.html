@@ -1,0 +1,72 @@
+<form [formGroup]="formModifierEleves" (ngSubmit)="saveData()">
+    <div>
+      <label for="birthday">Date de naissance:</label>
+      <input id="birthday" formControlName="birthday" type="date" />
+      <div *ngIf="isInvalidInput('birthday')">
+        <small class="error">La date de naissance est requise.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="firstName">Prénom:</label>
+      <input id="firstName" formControlName="firstName" type="text" />
+      <div *ngIf="isInvalidInput('firstName')">
+        <small class="error">Le prénom est requis et doit avoir au moins 10 caractères.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="lastName">Nom:</label>
+      <input id="lastName" formControlName="lastName" type="text" />
+      <div *ngIf="isInvalidInput('lastName')">
+        <small class="error">Le nom est requis.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="phoneNumber">Numéro de téléphone:</label>
+      <input id="phoneNumber" formControlName="phoneNumber" type="tel" />
+      <div *ngIf="isInvalidInput('phoneNumber')">
+        <small class="error">Un numéro de téléphone valide est requis (10 chiffres).</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="urlPicture">URL de la photo:</label>
+      <input id="urlPicture" formControlName="urlPicture" type="url" />
+      <div *ngIf="isInvalidInput('urlPicture')">
+        <small class="error">L'URL de la photo est requise.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="gender">Genre:</label>
+      <select id="gender" formControlName="gender">
+        <option value="">Sélectionnez le genre</option>
+        <option value="male">Masculin</option>
+        <option value="female">Féminin</option>
+      </select>
+      <div *ngIf="isInvalidInput('gender')">
+        <small class="error">Le genre est requis.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="matricule">Matricule:</label>
+      <input id="matricule" formControlName="matricule" type="text" />
+      <div *ngIf="isInvalidInput('matricule')">
+        <small class="error">Le matricule est requis.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="phoneNumberFather">Numéro de téléphone du père:</label>
+      <input id="phoneNumberFather" formControlName="phoneNumberFather" type="tel" />
+      <div *ngIf="isInvalidInput('phoneNumberFather')">
+        <small class="error">Un numéro de téléphone valide est requis pour le père (10 chiffres).</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="formModifierEleves.invalid">Enregistrer</button>
+  </form>
+  

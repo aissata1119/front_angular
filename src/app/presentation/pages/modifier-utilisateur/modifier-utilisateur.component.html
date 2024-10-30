@@ -1,0 +1,43 @@
+<!-- ajouter-professeur.component.html -->
+<form [formGroup]="formModifierUtilisateur" (ngSubmit)="saveData()">
+    <div>
+      <label for="firstName">Prénom:</label>
+      <input id="firstName" formControlName="firstName" type="text" />
+      <div *ngIf="isInvalidInput('firstName')">
+        <small class="error">Le prénom est requis et doit avoir au moins 10 caractères.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="lastName">Nom:</label>
+      <input id="lastName" formControlName="lastName" type="text" />
+      <div *ngIf="isInvalidInput('lastName')">
+        <small class="error">Le nom est requis.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="phoneNumber">Numéro de téléphone:</label>
+      <input id="phoneNumber" formControlName="phoneNumber" type="tel" />
+      <div *ngIf="isInvalidInput('phoneNumber')">
+        <small class="error">Un numéro de téléphone valide est requis (10 chiffres).</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="gender">Genre:</label>
+      <select id="gender" formControlName="gender">
+        <option value="">Sélectionnez le genre</option>
+        <option value="male">Masculin</option>
+        <option value="female">Féminin</option>
+      </select>
+      <div *ngIf="isInvalidInput('gender')">
+        <small class="error">Le genre est requis.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="formModifierUtilisateur.invalid">Enregistrer</button>
+  </form>
+  
+
+
